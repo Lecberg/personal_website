@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    @apply bg-slate-100 dark:bg-slate-800;
+}
+::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 dark:bg-slate-600 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-400 dark:bg-slate-500;
+}
+
+/* Nav Link Active */
+.nav-link.active {
+    @apply text-brand-600 font-bold;
+}
+
+/* Mobile menu transition */
+#mobile-menu {
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+#mobile-menu.open {
+    max-height: 400px;
+    opacity: 1;
+}
+
+/* Glassmorphism utility */
+.glass {
+    @apply bg-white/70 dark:bg-slate-900/70 backdrop-blur-md border border-white/20 dark:border-slate-700/30;
+}
+
+/* Hero Blob */
+.hero-blob {
+    position: absolute;
+    top: -10%;
+    right: -5%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+    @apply rounded-full -z-10 blur-[60px];
+    animation: pulse 10s infinite alternate;
+}
+
+.dark .hero-blob {
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.1) 0%, rgba(15, 23, 42, 0) 70%);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}

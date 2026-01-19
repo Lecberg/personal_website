@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryan Ma | Urban Design & Transport Portfolio</title>
+    <meta name="description" content="Portfolio of Ma Tianhao (Ryan), Master's student in Urban Design and Transport at HKU.">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 antialiased selection:bg-brand-200 selection:text-brand-900 transition-colors duration-300">
+
+    <!-- NAVIGATION -->
+    <header id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 py-4 bg-transparent">
+        <div class="container mx-auto px-6 md:px-12 flex justify-between items-center">
+            
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="w-10 h-10 bg-brand-600 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-brand-500/30 transition-transform group-hover:scale-105">
+                    R
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold text-slate-900 dark:text-white leading-tight">Ryan Ma</span>
+                    <span class="text-[10px] text-slate-500 dark:text-slate-400 font-medium uppercase tracking-wider">Urban Design</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#home" class="nav-link text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-brand-600 transition-colors">Home</a>
+                <a href="#about" class="nav-link text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-brand-600 transition-colors">About</a>
+                <a href="#experience" class="nav-link text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-brand-600 transition-colors">Experience</a>
+                <a href="#projects" class="nav-link text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-brand-600 transition-colors">Projects</a>
+                <a href="#skills" class="nav-link text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-brand-600 transition-colors">Skills</a>
+                
+                <div class="flex items-center gap-4">
+                    <button id="theme-toggle" class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-brand-600 transition-all">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:block"></i>
+                    </button>
+                    <a href="mailto:u3664746@connect.hku.hk" class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-medium rounded-full shadow-lg shadow-brand-600/20 transition-all hover:-translate-y-0.5">
+                        Contact Me
+                    </a>
+                </div>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <div class="flex items-center gap-4 md:hidden">
+                <button id="theme-toggle-mobile" class="theme-toggle w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+                    <i class="fa-solid fa-moon dark:hidden"></i>
+                    <i class="fa-solid fa-sun hidden dark:block"></i>
+                </button>
+                <button id="menu-btn" class="text-slate-700 dark:text-slate-300 hover:text-brand-600 focus:outline-none">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="md:hidden bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 shadow-xl absolute w-full left-0 top-full">
+            <div class="px-6 py-4 flex flex-col gap-4">
+                <a href="#home" class="mobile-link text-base font-medium text-slate-600 dark:text-slate-400 hover:text-brand-600">Home</a>
+                <a href="#about" class="mobile-link text-base font-medium text-slate-600 dark:text-slate-400 hover:text-brand-600">About</a>
+                <a href="#experience" class="mobile-link text-base font-medium text-slate-600 dark:text-slate-400 hover:text-brand-600">Experience</a>
+                <a href="#projects" class="mobile-link text-base font-medium text-slate-600 dark:text-slate-400 hover:text-brand-600">Projects</a>
+                <a href="#skills" class="mobile-link text-base font-medium text-slate-600 dark:text-slate-400 hover:text-brand-600">Skills</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-screen flex items-center">
+        <div class="hero-blob"></div>
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="opacity-0 animate-fade-in-up" style="animation-delay: 0.1s;">
+                    
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 dark:bg-brand-900/30 border border-brand-100 dark:border-brand-800/50 text-brand-700 dark:text-brand-300 text-xs font-semibold uppercase tracking-wide mb-6">
+                        <span class="relative flex h-2 w-2">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
+                        </span>
+                        Based in Hong Kong
+                    </div>
+
+                    <h1 class="text-5xl md:text-7xl font-bold tracking-tight text-slate-900 dark:text-white mb-6 leading-[1.1]">
+                        Ma Tianhao <span class="text-slate-400 dark:text-slate-500 font-normal">(Ryan)</span>
+                    </h1>
+                    
+                    <p class="text-xl md:text-2xl text-slate-600 dark:text-slate-400 mb-10 max-w-2xl leading-relaxed font-light">
+                        Master's student specializing in <strong class="text-brand-600 font-semibold">Urban Design</strong> and <strong class="text-brand-600 font-semibold">Transport</strong>. 
+                        Merging spatial analysis and data science to solve complex city challenges.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4 mb-16">
+                        <a href="#projects" class="inline-flex items-center gap-2 bg-slate-900 dark:bg-white dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-slate-100 text-white px-8 py-4 rounded-lg font-medium transition-all hover:shadow-lg hover:-translate-y-1">
+                            View My Work <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="mailto:u3664746@connect.hku.hk" class="inline-flex items-center gap-2 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 px-8 py-4 rounded-lg font-medium transition-all hover:shadow-md">
+                            <i class="fa-regular fa-envelope"></i> Contact Me
+                        </a>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-slate-500 dark:text-slate-400 text-sm font-medium pt-8 border-t border-slate-200 dark:border-slate-800">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-full bg-brand-50 dark:bg-brand-900/20 flex items-center justify-center text-brand-600 dark:text-brand-400">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            Hong Kong
+                        </div>
+                        <div class="flex items-center gap-3">
+                             <div class="w-8 h-8 rounded-full bg-brand-50 dark:bg-brand-900/20 flex items-center justify-center text-brand-600 dark:text-brand-400">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            +852 84963497
+                        </div>
+                        <div class="flex items-center gap-3">
+                             <div class="w-8 h-8 rounded-full bg-brand-50 dark:bg-brand-900/20 flex items-center justify-center text-brand-600 dark:text-brand-400">
+                                <i class="fa-solid fa-at"></i>
+                            </div>
+                            u3664746@connect.hku.hk
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Image -->
+                <div class="relative lg:block opacity-0 animate-fade-in-up" style="animation-delay: 0.3s;">
+                    <div class="relative z-10 w-64 h-auto md:w-80 mx-auto lg:ml-auto overflow-hidden rounded-2xl shadow-2xl border-4 border-white dark:border-slate-800">
+                        <img src="/profile_image.JPG" alt="Ryan Ma" class="w-full block">
+                    </div>
+                    <!-- Decorative elements -->
+                    <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-brand-100 dark:bg-brand-900/20 rounded-full -z-0 blur-2xl opacity-60"></div>
+                    <div class="absolute -top-6 -left-6 w-24 h-24 bg-blue-50 dark:bg-slate-800 rounded-lg -z-0 rotate-12 opacity-80"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT / EDUCATION / EXPERIENCE SECTION -->
+    <section id="about" class="py-24 bg-white dark:bg-slate-900/50">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="grid lg:grid-cols-2 gap-20">
+                
+                <!-- Education Column -->
+                <div>
+                    <div class="flex items-center gap-4 mb-10">
+                        <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-blue-600 dark:text-blue-400 text-xl">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <h2 class="text-3xl font-bold text-slate-900 dark:text-white">Education</h2>
+                    </div>
+
+                    <div class="space-y-12 pl-2">
+                        <!-- Education Item 1 -->
+                        <div class="relative pl-8 border-l-2 border-slate-200 dark:border-slate-800 group">
+                            <div class="absolute top-0 left-[-9px] w-4 h-4 bg-white dark:bg-slate-900 border-2 border-blue-500 rounded-full group-hover:scale-125 transition-transform"></div>
+                            <span class="inline-block px-2 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-bold rounded mb-2">Expected June 2027</span>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">The University of Hong Kong</h3>
+                            <p class="text-slate-600 dark:text-slate-400 font-medium">Master of Science in Urban Design and Transport</p>
+                        </div>
+
+                        <!-- Education Item 2 -->
+                        <div class="relative pl-8 border-l-2 border-slate-200 dark:border-slate-800 group">
+                            <div class="absolute top-0 left-[-9px] w-4 h-4 bg-white dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-700 rounded-full group-hover:border-blue-500 transition-colors"></div>
+                            <span class="inline-block px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-xs font-bold rounded mb-2">Sep 2021 - June 2025</span>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Chang’an University</h3>
+                            <p class="text-slate-600 dark:text-slate-400 font-medium">Bachelor of Engineering in Traffic Engineering</p>
+                            <p class="text-slate-500 dark:text-slate-500 text-sm mt-2">GPA: 86.06/100.00</p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="text-[10px] px-2 py-0.5 bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 rounded border border-slate-100 dark:border-slate-700">Road Capacity Analysis</span>
+                                <span class="text-[10px] px-2 py-0.5 bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 rounded border border-slate-100 dark:border-slate-700">Discrete Mathematics</span>
+                                <span class="text-[10px] px-2 py-0.5 bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 rounded border border-slate-100 dark:border-slate-700">Operations Research</span>
+                                <span class="text-[10px] px-2 py-0.5 bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 rounded border border-slate-100 dark:border-slate-700">Python Programming</span>
+                                <span class="text-[10px] px-2 py-0.5 bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 rounded border border-slate-100 dark:border-slate-700">Transportation Planning</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience Column -->
+                <div id="experience">
+                    <div class="flex items-center gap-4 mb-10">
+                        <div class="w-12 h-12 bg-teal-100 dark:bg-teal-900/30 rounded-xl flex items-center justify-center text-teal-600 dark:text-teal-400 text-xl">
+                            <i class="fa-solid fa-briefcase"></i>
+                        </div>
+                        <h2 class="text-3xl font-bold text-slate-900 dark:text-white">Experience</h2>
+                    </div>
+
+                    <div class="space-y-12 pl-2">
+                        <!-- Experience Item 1 -->
+                        <div class="relative pl-8 border-l-2 border-slate-200 dark:border-slate-800 group">
+                            <div class="absolute top-0 left-[-9px] w-4 h-4 bg-white dark:bg-slate-900 border-2 border-teal-500 rounded-full group-hover:scale-125 transition-transform"></div>
+                            <span class="inline-block px-2 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 text-xs font-bold rounded mb-2">July 2024 - Aug 2024</span>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Shenzhen Urban Planning & Design Institute</h3>
+                            <p class="text-slate-800 dark:text-slate-300 font-medium mb-3">Intern, Second Municipal Engineering Institute</p>
+                            <ul class="text-slate-600 dark:text-slate-400 text-sm list-disc pl-4 space-y-2 marker:text-teal-500">
+                                <li>Contributed to road intersection designs for the "Shenzhen Bay Super Headquarters Base" municipal project.</li>
+                                <li>Assisted in modifying CAD drawings, ensuring compliance with standards, and verified ground building numbers.</li>
+                                <li>Supported project review meetings and summarized expert feedback for department leaders.</li>
+                                <li>Applied traffic design theory to adjust lane widths and curve radii, enhancing safety for complex intersections.</li>
+                                <li>Coordinated with architectural teams to resolve building number discrepancies and improved vehicle flow marking.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="py-24 bg-slate-50 dark:bg-slate-900/80">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-600 dark:text-brand-400 font-semibold tracking-wider uppercase text-sm">Portfolio</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mt-2 mb-4">Selected Projects</h2>
+                <p class="text-slate-600 dark:text-slate-400">Featuring work in spatial analysis, traffic simulation, and computer vision applications.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project 1 -->
+                <article class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group flex flex-col h-full">
+                    <div class="h-48 bg-gradient-to-br from-brand-600 to-brand-800 p-6 flex items-end relative overflow-hidden">
+                        <i class="fa-solid fa-map absolute -right-4 -bottom-4 text-9xl text-white opacity-10 transform rotate-12 group-hover:scale-110 transition-transform duration-500"></i>
+                        <h3 class="text-white font-bold text-xl relative z-10">Northern Metropolis Spatial Analysis</h3>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="flex gap-2 mb-4 flex-wrap">
+                            <span class="px-2 py-1 bg-brand-50 dark:bg-brand-900/30 text-brand-700 dark:text-brand-300 text-xs font-semibold rounded border border-brand-100 dark:border-brand-800/50">GWR Analysis</span>
+                            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-semibold rounded border border-slate-200 dark:border-slate-600">Python</span>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-6 flex-1 leading-relaxed">
+                            Performed GWR analysis on employment categories using integrated census and Foursquare POI data. Demonstrated superior explanatory power (R² > 0.5) and generated 2033 job distribution predictions.
+                        </p>
+                        <div class="pt-4 border-t border-slate-100 dark:border-slate-700 flex justify-between items-center">
+                            <span class="text-xs text-slate-400 dark:text-slate-500 font-medium">Sep 2025 - Dec 2025</span>
+                            <a href="#" class="text-brand-600 dark:text-brand-400 text-sm font-semibold hover:text-brand-800 dark:hover:text-brand-300 flex items-center gap-1 group-hover:gap-2 transition-all">
+                                Details <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group flex flex-col h-full">
+                    <div class="h-48 bg-gradient-to-br from-red-600 to-red-800 p-6 flex items-end relative overflow-hidden">
+                        <i class="fa-solid fa-triangle-exclamation absolute -right-4 -bottom-4 text-9xl text-white opacity-10 transform rotate-12 group-hover:scale-110 transition-transform duration-500"></i>
+                        <h3 class="text-white font-bold text-xl relative z-10">Accident Early Warning System</h3>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="flex gap-2 mb-4 flex-wrap">
+                            <span class="px-2 py-1 bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-300 text-xs font-semibold rounded border border-red-100 dark:border-red-800/50">National Innovation</span>
+                            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-semibold rounded border border-slate-200 dark:border-slate-600">CV / Python</span>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-6 flex-1 leading-relaxed">
+                            Developed a real-time warning device using computer vision to prevent secondary traffic accidents. Secured a utility model patent for the system's improved response speed.
+                        </p>
+                        <div class="pt-4 border-t border-slate-100 dark:border-slate-700 flex justify-between items-center">
+                            <span class="text-xs text-slate-400 dark:text-slate-500 font-medium">June 2022 - May 2023</span>
+                            <a href="#" class="text-brand-600 dark:text-brand-400 text-sm font-semibold hover:text-brand-800 dark:hover:text-brand-300 flex items-center gap-1 group-hover:gap-2 transition-all">
+                                Details <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 3 -->
+                <article class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group flex flex-col h-full">
+                    <div class="h-48 bg-gradient-to-br from-indigo-600 to-indigo-800 p-6 flex items-end relative overflow-hidden">
+                        <i class="fa-solid fa-truck-monster absolute -right-4 -bottom-4 text-9xl text-white opacity-10 transform rotate-12 group-hover:scale-110 transition-transform duration-500"></i>
+                        <h3 class="text-white font-bold text-xl relative z-10">Freight Tire Classification</h3>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="flex gap-2 mb-4 flex-wrap">
+                            <span class="px-2 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 text-xs font-semibold rounded border border-indigo-100 dark:border-indigo-800/50">Provincial Innovation</span>
+                            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-semibold rounded border border-slate-200 dark:border-slate-600">YOLOv8 / ResNet</span>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-6 flex-1 leading-relaxed">
+                            Developed a non-contact weight estimation system using YOLOv8 and ResNet for real-time tire classification and deep feature extraction in complex traffic scenarios.
+                        </p>
+                        <div class="pt-4 border-t border-slate-100 dark:border-slate-700 flex justify-between items-center">
+                            <span class="text-xs text-slate-400 dark:text-slate-500 font-medium">Jul 2023 - Apr 2024</span>
+                            <a href="#" class="text-brand-600 dark:text-brand-400 text-sm font-semibold hover:text-brand-800 dark:hover:text-brand-300 flex items-center gap-1 group-hover:gap-2 transition-all">
+                                Details <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 4 -->
+                <article class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group flex flex-col h-full">
+                    <div class="h-48 bg-gradient-to-br from-slate-700 to-slate-900 p-6 flex items-end relative overflow-hidden">
+                        <i class="fa-solid fa-layer-group absolute -right-4 -bottom-4 text-9xl text-white opacity-10 transform rotate-12 group-hover:scale-110 transition-transform duration-500"></i>
+                        <h3 class="text-white font-bold text-xl relative z-10">Yuxiang Gate Intersection Design</h3>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="flex gap-2 mb-4 flex-wrap">
+                            <span class="px-2 py-1 bg-orange-50 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 text-xs font-semibold rounded border border-orange-100 dark:border-orange-800/50">CAD</span>
+                            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-semibold rounded border border-slate-200 dark:border-slate-600">Traffic Eng</span>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-6 flex-1 leading-relaxed">
+                            Designed layout plan and traffic organization for Yuxiangmen intersection. Utilized CAD for precise compliance with road engineering standards and optimized traffic capacity.
+                        </p>
+                        <div class="pt-4 border-t border-slate-100 dark:border-slate-700 flex justify-between items-center">
+                            <span class="text-xs text-slate-400 dark:text-slate-500 font-medium">May 2024 - June 2024</span>
+                            <a href="#" class="text-brand-600 dark:text-brand-400 text-sm font-semibold hover:text-brand-800 dark:hover:text-brand-300 flex items-center gap-1 group-hover:gap-2 transition-all">
+                                Details <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 5 -->
+                <article class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group flex flex-col h-full">
+                    <div class="h-48 bg-gradient-to-br from-emerald-600 to-emerald-800 p-6 flex items-end relative overflow-hidden">
+                        <i class="fa-solid fa-traffic-light absolute -right-4 -bottom-4 text-9xl text-white opacity-10 transform rotate-12 group-hover:scale-110 transition-transform duration-500"></i>
+                        <h3 class="text-white font-bold text-xl relative z-10">Traffic Signal Optimization</h3>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="flex gap-2 mb-4 flex-wrap">
+                            <span class="px-2 py-1 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-xs font-semibold rounded border border-emerald-100 dark:border-emerald-800/50">VISSIM</span>
+                            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-semibold rounded border border-slate-200 dark:border-slate-600">Simulation</span>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-6 flex-1 leading-relaxed">
+                            Optimized signal control for Fengcheng 7th Road using VISSIM. Analyzed traffic volume and speed data to adjust signal timing, significantly enhancing efficiency.
+                        </p>
+                        <div class="pt-4 border-t border-slate-100 dark:border-slate-700 flex justify-between items-center">
+                            <span class="text-xs text-slate-400 dark:text-slate-500 font-medium">Oct 2023 - Dec 2023</span>
+                            <a href="#" class="text-brand-600 dark:text-brand-400 text-sm font-semibold hover:text-brand-800 dark:hover:text-brand-300 flex items-center gap-1 group-hover:gap-2 transition-all">
+                                Details <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Awards / Honors Sub-section -->
+            <div class="mt-20">
+                <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-8 flex items-center gap-3">
+                    <span class="w-8 h-8 rounded bg-yellow-100 dark:bg-yellow-900/30 flex items-center justify-center text-yellow-600 dark:text-yellow-400 text-sm"><i class="fa-solid fa-trophy"></i></span>
+                    Honors & Awards
+                </h3>
+                
+                <div class="space-y-4">
+                    <!-- Award 1 -->
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-brand-400 dark:hover:border-brand-500 transition-colors shadow-sm flex flex-col md:flex-row gap-6 items-start md:items-center">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-slate-900 dark:text-white text-lg">2023 MCM/ICM Meritorious Winner</h4>
+                            <div class="text-sm text-slate-500 dark:text-slate-400 mb-2">May 2023 • Mathematical Modeling</div>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm">Predicted Wordle engagement trends using CNN-LSTM and classified difficulty with EWM-TOPSIS. Achieved high accuracy in forecasting solve distributions.</p>
+                        </div>
+                        <div class="shrink-0">
+                             <span class="px-3 py-1 bg-yellow-50 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400 text-xs font-bold rounded-full border border-yellow-200 dark:border-yellow-800/50">Meritorious Winner</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="py-24 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-brand-100 dark:bg-brand-900/10 rounded-full blur-[128px] opacity-40 -mr-20 -mt-20"></div>
+
+        <div class="container mx-auto px-6 md:px-12 relative z-10">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-slate-900 dark:text-white">Technical Skills</h2>
+                    <p class="text-slate-600 dark:text-slate-400 mb-10 text-lg leading-relaxed">
+                        A robust toolkit combining modern data science with traditional traffic engineering software, enabling comprehensive urban analysis.
+                    </p>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold text-slate-800 dark:text-slate-200">Python & MATLAB Analysis</span>
+                                <span class="text-brand-600 dark:text-brand-400 text-sm font-bold tracking-wide">Advanced</span>
+                            </div>
+                            <div class="h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-brand-500 w-[90%] shadow-sm"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold text-slate-800 dark:text-slate-200">ArcGIS PRO & Spatial Analysis</span>
+                                <span class="text-teal-600 dark:text-teal-400 text-sm font-bold tracking-wide">Advanced</span>
+                            </div>
+                            <div class="h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-teal-500 w-[85%] shadow-sm"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold text-slate-800 dark:text-slate-200">CAD & Engineering Drawing</span>
+                                <span class="text-orange-600 dark:text-orange-400 text-sm font-bold tracking-wide">Proficient</span>
+                            </div>
+                            <div class="h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-orange-500 w-[80%] shadow-sm"></div>
+                            </div>
+                        </div>
+
+                         <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold text-slate-800 dark:text-slate-200">VISSIM & Signal 4.0</span>
+                                <span class="text-purple-600 dark:text-purple-400 text-sm font-bold tracking-wide">Proficient</span>
+                            </div>
+                            <div class="h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-purple-500 w-[75%] shadow-sm"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 text-center">
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm hover:border-brand-500 dark:hover:border-brand-400 hover:shadow-md transition-all group">
+                        <i class="fa-solid fa-terminal text-brand-600 dark:text-brand-400 text-3xl mb-4 group-hover:scale-110 transition-transform block mx-auto"></i>
+                        <h3 class="font-bold text-lg mb-2 text-slate-900 dark:text-white">Programming</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Python, MATLAB, Excel, Data Visualization</p>
+                    </div>
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm hover:border-teal-500 dark:hover:border-teal-400 hover:shadow-md transition-all group">
+                        <i class="fa-solid fa-map-location-dot text-teal-600 dark:text-teal-400 text-3xl mb-4 group-hover:scale-110 transition-transform block mx-auto"></i>
+                        <h3 class="font-bold text-lg mb-2 text-slate-900 dark:text-white">GIS & Design</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">ArcGIS PRO, AutoCAD, Adobe Illustrator</p>
+                    </div>
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm hover:border-orange-500 dark:hover:border-orange-400 hover:shadow-md transition-all group">
+                        <i class="fa-solid fa-person-running text-orange-600 dark:text-orange-400 text-3xl mb-4 group-hover:scale-110 transition-transform block mx-auto"></i>
+                        <h3 class="font-bold text-lg mb-2 text-slate-900 dark:text-white">Interests</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Tennis, Go-Karting, Badminton, Swimming</p>
+                    </div>
+                     <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm hover:border-purple-500 dark:hover:border-purple-400 hover:shadow-md transition-all group">
+                        <i class="fa-solid fa-language text-purple-600 dark:text-purple-400 text-3xl mb-4 group-hover:scale-110 transition-transform block mx-auto"></i>
+                        <h3 class="font-bold text-lg mb-2 text-slate-900 dark:text-white">Languages</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Mandarin (Native), English (Fluent)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-12">
+        <div class="container mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <h4 class="font-bold text-slate-900 dark:text-white text-lg">Ma Tianhao (Ryan)</h4>
+                <p class="text-slate-500 dark:text-slate-400 text-sm">Urban Design & Transport Specialist</p>
+                <p class="text-slate-400 dark:text-slate-500 text-xs mt-1">&copy; 2026. All rights reserved.</p>
+            </div>
+            
+            <div class="flex gap-6">
+                <a href="#" class="w-10 h-10 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-brand-600 hover:text-white transition-all duration-300">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-slate-900 dark:hover:bg-white dark:hover:text-slate-900 transition-all duration-300">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="mailto:u3664746@connect.hku.hk" class="w-10 h-10 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-brand-600 hover:text-white transition-all duration-300">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+            </div>
+
+            <a href="/personal_CV.docx" download class="flex items-center gap-2 text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 transition-colors px-4 py-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800">
+                <i class="fa-solid fa-download"></i> Download CV
+            </a>
+        </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
