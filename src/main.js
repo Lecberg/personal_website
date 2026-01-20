@@ -187,7 +187,10 @@ function closeProjectDetail() {
     setTimeout(() => {
         projectOverlay.classList.add('hidden');
         document.body.style.overflow = ''; // Restore scrolling
-        window.location.hash = '#projects';
+        // Remove hash without scrolling to anchor
+        if (window.location.hash.startsWith('#project/')) {
+            history.pushState("", document.title, window.location.pathname + window.location.search);
+        }
     }, 500);
 }
 
