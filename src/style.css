@@ -58,3 +58,20 @@
     0% { transform: scale(1); }
     100% { transform: scale(1.1); }
 }
+
+/* Detailed Project Typography */
+#overlay-content p {
+    @apply mb-4 leading-relaxed;
+}
+
+#overlay-content h4 {
+    @apply font-bold text-slate-900 dark:text-white;
+}
+
+#overlay-content ul {
+    @apply list-disc pl-5 mb-6;
+}
+
+#overlay-content li {
+    @apply mb-2;
+}

@@ -4,6 +4,20 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  safelist: [
+    {
+      pattern: /(bg|text|border|from|to)-(brand|red|indigo|orange|emerald)-(50|100|200|300|400|500|600|700|800|900)/,
+      variants: ['dark', 'hover', 'group-hover'],
+    },
+    {
+      pattern: /bg-(brand|red|indigo|orange|emerald)-900\/30/,
+      variants: ['dark'],
+    },
+    {
+      pattern: /border-(brand|red|indigo|orange|emerald)-800\/50/,
+      variants: ['dark'],
+    },
+  ],
   darkMode: 'class',
   theme: {
     fontFamily: {
