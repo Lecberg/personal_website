@@ -88,6 +88,7 @@ const projectsGrid = document.getElementById('projects-grid');
 const projectOverlay = document.getElementById('project-overlay');
 const overlayContent = document.getElementById('overlay-content');
 const closeOverlayBtn = document.getElementById('close-overlay');
+const navbarContainer = document.querySelector('#navbar .container');
 
 function renderProjects() {
     if (!projectsGrid) return;
@@ -122,6 +123,9 @@ function disableBodyScroll() {
     const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
     if (scrollbarWidth > 0) {
         document.body.style.paddingRight = `${scrollbarWidth}px`;
+        if (navbarContainer) {
+            navbarContainer.style.paddingRight = `${scrollbarWidth}px`;
+        }
     }
     document.body.style.overflow = 'hidden';
 }
@@ -129,6 +133,9 @@ function disableBodyScroll() {
 function enableBodyScroll() {
     document.body.style.overflow = '';
     document.body.style.paddingRight = '';
+    if (navbarContainer) {
+        navbarContainer.style.paddingRight = '';
+    }
 }
 
 function showProjectDetail(projectId) {
