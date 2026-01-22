@@ -118,6 +118,19 @@ function renderProjects() {
     `).join('');
 }
 
+function disableBodyScroll() {
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    if (scrollbarWidth > 0) {
+        document.body.style.paddingRight = `${scrollbarWidth}px`;
+    }
+    document.body.style.overflow = 'hidden';
+}
+
+function enableBodyScroll() {
+    document.body.style.overflow = '';
+    document.body.style.paddingRight = '';
+}
+
 function showProjectDetail(projectId) {
     const project = projects.find(p => p.id === projectId);
     if (!project || !overlayContent || !projectOverlay) return;
@@ -177,7 +190,7 @@ function showProjectDetail(projectId) {
     projectOverlay.classList.remove('hidden');
     setTimeout(() => {
         projectOverlay.classList.add('opacity-100');
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        disableBodyScroll();
     }, 10);
 }
 
@@ -186,7 +199,7 @@ function closeProjectDetail() {
     projectOverlay.classList.remove('opacity-100');
     setTimeout(() => {
         projectOverlay.classList.add('hidden');
-        document.body.style.overflow = ''; // Restore scrolling
+        enableBodyScroll();
         // Remove hash without scrolling to anchor
         if (window.location.hash.startsWith('#project/')) {
             history.pushState("", document.title, window.location.pathname + window.location.search);
