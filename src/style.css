@@ -75,3 +75,7 @@
 #overlay-content li {
     @apply mb-2;
 }
+
+.no-transition {
+    transition: none !important;
+}

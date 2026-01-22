@@ -88,7 +88,7 @@ const projectsGrid = document.getElementById('projects-grid');
 const projectOverlay = document.getElementById('project-overlay');
 const overlayContent = document.getElementById('overlay-content');
 const closeOverlayBtn = document.getElementById('close-overlay');
-const navbarContainer = document.querySelector('#navbar .container');
+const navbar = document.getElementById('navbar');
 
 function renderProjects() {
     if (!projectsGrid) return;
@@ -123,8 +123,9 @@ function disableBodyScroll() {
     const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
     if (scrollbarWidth > 0) {
         document.body.style.paddingRight = `${scrollbarWidth}px`;
-        if (navbarContainer) {
-            navbarContainer.style.paddingRight = `${scrollbarWidth}px`;
+        if (navbar) {
+            navbar.classList.add('no-transition');
+            navbar.style.paddingRight = `${scrollbarWidth}px`;
         }
     }
     document.body.style.overflow = 'hidden';
@@ -133,8 +134,12 @@ function disableBodyScroll() {
 function enableBodyScroll() {
     document.body.style.overflow = '';
     document.body.style.paddingRight = '';
-    if (navbarContainer) {
-        navbarContainer.style.paddingRight = '';
+    if (navbar) {
+        navbar.style.paddingRight = '';
+        // Small delay to ensure the padding is removed before re-enabling transitions
+        setTimeout(() => {
+            navbar.classList.remove('no-transition');
+        }, 10);
     }
 }
 
