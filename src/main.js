@@ -88,7 +88,6 @@ const projectsGrid = document.getElementById('projects-grid');
 const projectOverlay = document.getElementById('project-overlay');
 const overlayContent = document.getElementById('overlay-content');
 const closeOverlayBtn = document.getElementById('close-overlay');
-const navbar = document.getElementById('navbar');
 
 function renderProjects() {
     if (!projectsGrid) return;
