@@ -1,247 +1,350 @@
 import './style.css'
 import { projects } from './data/projects.js'
 
-// 1. Dark Mode Toggle Logic
 const themeToggle = document.getElementById('theme-toggle');
 const themeToggleMobile = document.getElementById('theme-toggle-mobile');
 const htmlElement = document.documentElement;
-
-const toggleDarkMode = () => {
-    htmlElement.classList.toggle('dark');
-    if (htmlElement.classList.contains('dark')) {
-        localStorage.theme = 'dark';
-    } else {
-        localStorage.theme = 'light';
-    }
-};
-
-// Check for saved theme preference or system preference
-if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    htmlElement.classList.add('dark');
-} else {
-    htmlElement.classList.remove('dark');
-}
-
-themeToggle?.addEventListener('click', toggleDarkMode);
-themeToggleMobile?.addEventListener('click', toggleDarkMode);
-
-// 2. Navbar Scroll Effect
 const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar?.classList.add('bg-white/90', 'dark:bg-slate-900/90', 'backdrop-blur-md', 'shadow-sm', 'py-2');
-        navbar?.classList.remove('py-4', 'bg-transparent');
-    } else {
-        navbar?.classList.add('py-4', 'bg-transparent');
-        navbar?.classList.remove('bg-white/90', 'dark:bg-slate-900/90', 'backdrop-blur-md', 'shadow-sm', 'py-2');
-    }
-});
-
-// 3. Mobile Menu Toggle
 const menuBtn = document.getElementById('menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 const mobileLinks = document.querySelectorAll('.mobile-link');
-let isMenuOpen = false;
-
-menuBtn?.addEventListener('click', () => {
-    isMenuOpen = !isMenuOpen;
-    if (isMenuOpen) {
-        mobileMenu?.classList.add('open');
-        menuBtn.innerHTML = '<i class="fa-solid fa-xmark text-2xl"></i>';
-    } else {
-        mobileMenu?.classList.remove('open');
-        menuBtn.innerHTML = '<i class="fa-solid fa-bars text-2xl"></i>';
-    }
-});
-
-mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        isMenuOpen = false;
-        mobileMenu?.classList.remove('open');
-        menuBtn && (menuBtn.innerHTML = '<i class="fa-solid fa-bars text-2xl"></i>');
-    });
-});
-
-// 4. ScrollSpy
-const sections = document.querySelectorAll('section');
+const sections = document.querySelectorAll('main section, footer[id]');
 const navLinks = document.querySelectorAll('.nav-link');
-
-window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (window.pageYOffset >= (sectionTop - 200)) {
-            current = section.getAttribute('id') || '';
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove('active', 'text-brand-600');
-        if (link.getAttribute('href')?.includes(current)) {
-            link.classList.add('active', 'text-brand-600');
-        }
-    });
-});
-
-// 5. Dynamic Project Rendering & Overlay Logic
 const projectsGrid = document.getElementById('projects-grid');
 const projectOverlay = document.getElementById('project-overlay');
 const overlayContent = document.getElementById('overlay-content');
 const closeOverlayBtn = document.getElementById('close-overlay');
 
+const caseStyles = [
+  {
+    tile: 'case-tile-featured',
+    visual: 'visual-brand',
+    dot: 'bg-brand-500',
+    accent: 'text-brand-700 dark:text-brand-300',
+  },
+  {
+    tile: 'case-tile-featured',
+    visual: 'visual-teal',
+    dot: 'bg-teal-500',
+    accent: 'text-teal-700 dark:text-teal-300',
+  },
+  {
+    tile: 'case-tile-featured',
+    visual: 'visual-slate',
+    dot: 'bg-slate-700 dark:bg-slate-200',
+    accent: 'text-slate-700 dark:text-slate-200',
+  },
+  {
+    tile: 'case-tile-compact',
+    visual: 'visual-cyan',
+    dot: 'bg-cyan-500',
+    accent: 'text-cyan-700 dark:text-cyan-300',
+  },
+  {
+    tile: 'case-tile-compact',
+    visual: 'visual-amber',
+    dot: 'bg-amber-500',
+    accent: 'text-amber-700 dark:text-amber-300',
+  },
+];
+
+const setInitialTheme = () => {
+  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    htmlElement.classList.add('dark');
+  } else {
+    htmlElement.classList.remove('dark');
+  }
+};
+
+const toggleDarkMode = () => {
+  htmlElement.classList.toggle('dark');
+  localStorage.theme = htmlElement.classList.contains('dark') ? 'dark' : 'light';
+};
+
+const updateNavbar = () => {
+  if (!navbar) return;
+  if (window.scrollY > 40) {
+    navbar.classList.add('border-b', 'border-slate-200', 'bg-atlas-paper/90', 'shadow-sm', 'backdrop-blur', 'py-3', 'dark:border-slate-800', 'dark:bg-slate-950/90');
+    navbar.classList.remove('py-4');
+  } else {
+    navbar.classList.add('py-4');
+    navbar.classList.remove('border-b', 'border-slate-200', 'bg-atlas-paper/90', 'shadow-sm', 'backdrop-blur', 'py-3', 'dark:border-slate-800', 'dark:bg-slate-950/90');
+  }
+};
+
+const setMenuOpen = (isOpen) => {
+  mobileMenu?.classList.toggle('open', isOpen);
+  if (menuBtn) {
+    menuBtn.setAttribute('aria-expanded', String(isOpen));
+    menuBtn.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    menuBtn.innerHTML = isOpen
+      ? '<i class="fa-solid fa-xmark text-lg" aria-hidden="true"></i>'
+      : '<i class="fa-solid fa-bars text-lg" aria-hidden="true"></i>';
+  }
+};
+
+const getStyle = (index) => caseStyles[index] || caseStyles[caseStyles.length - 1];
+
+const escapeHtml = (value) => String(value)
+  .replace(/&/g, '&amp;')
+  .replace(/</g, '&lt;')
+  .replace(/>/g, '&gt;')
+  .replace(/"/g, '&quot;')
+  .replace(/'/g, '&#039;');
+
+const getValidLinks = (links = {}) => Object.entries(links)
+  .filter(([, url]) => typeof url === 'string' && url.trim() && url.trim() !== '#');
+
+function renderVisual(project, style, index) {
+  return `
+    <div class="case-visual ${style.visual}" aria-hidden="true">
+      <div class="route-line route-line-a"></div>
+      <div class="route-line route-line-b"></div>
+      <div class="route-node route-node-one"></div>
+      <div class="route-node route-node-two"></div>
+      <span class="case-index">${String(index + 1).padStart(2, '0')}</span>
+      <i class="fa-solid fa-location-crosshairs case-compass"></i>
+      <p>${escapeHtml(project.type)}</p>
+    </div>
+  `;
+}
+
+function renderFeaturedProject(project, index) {
+  const style = getStyle(index);
+  return `
+    <article class="${style.tile} group">
+      ${renderVisual(project, style, index)}
+      <div class="flex flex-1 flex-col p-6 sm:p-7">
+        <div class="mb-5 flex flex-wrap items-center gap-3 text-xs font-bold uppercase tracking-[0.16em] text-slate-400">
+          <span class="inline-flex items-center gap-2"><span class="h-2 w-2 rounded-full ${style.dot}"></span>${escapeHtml(project.year)}</span>
+          <span>${escapeHtml(project.type)}</span>
+        </div>
+        <h3 class="text-2xl font-extrabold leading-tight text-slate-950 dark:text-white">${escapeHtml(project.title)}</h3>
+        <p class="mt-4 flex-1 text-sm leading-7 text-slate-600 dark:text-slate-300">${escapeHtml(project.summary)}</p>
+        <dl class="mt-6 grid grid-cols-1 gap-4 border-y border-slate-200 py-5 text-sm dark:border-slate-800">
+          <div>
+            <dt class="font-bold text-slate-400">Role</dt>
+            <dd class="mt-1 font-semibold text-slate-800 dark:text-slate-100">${escapeHtml(project.role)}</dd>
+          </div>
+          <div>
+            <dt class="font-bold text-slate-400">Outcome</dt>
+            <dd class="mt-1 font-semibold text-slate-800 dark:text-slate-100">${escapeHtml(project.outcome)}</dd>
+          </div>
+        </dl>
+        <div class="mt-6 flex flex-wrap gap-2">
+          ${project.methods.map(method => `<span class="method-pill">${escapeHtml(method)}</span>`).join('')}
+        </div>
+        <a href="#project/${project.id}" class="mt-7 inline-flex w-fit items-center gap-2 text-sm font-extrabold ${style.accent} transition-all group-hover:gap-3">
+          Open case study <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
+        </a>
+      </div>
+    </article>
+  `;
+}
+
+function renderCompactProject(project, index) {
+  const style = getStyle(index);
+  return `
+    <article class="${style.tile} group">
+      <div>
+        <div class="mb-3 flex flex-wrap items-center gap-3 text-xs font-bold uppercase tracking-[0.16em] text-slate-400">
+          <span class="inline-flex items-center gap-2"><span class="h-2 w-2 rounded-full ${style.dot}"></span>${escapeHtml(project.year)}</span>
+          <span>${escapeHtml(project.type)}</span>
+        </div>
+        <h3 class="text-xl font-extrabold text-slate-950 dark:text-white">${escapeHtml(project.title)}</h3>
+        <p class="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">${escapeHtml(project.summary)}</p>
+      </div>
+      <div class="flex flex-col gap-5 md:items-end">
+        <p class="max-w-sm text-sm font-semibold text-slate-700 dark:text-slate-200">${escapeHtml(project.outcome)}</p>
+        <a href="#project/${project.id}" class="inline-flex w-fit items-center gap-2 text-sm font-extrabold ${style.accent} transition-all group-hover:gap-3">
+          Open case study <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
+        </a>
+      </div>
+    </article>
+  `;
+}
+
 function renderProjects() {
-    if (!projectsGrid) return;
-    
-    projectsGrid.innerHTML = projects.map(project => `
-        <article class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group flex flex-col h-full">
-            <div class="h-48 bg-gradient-to-br from-${project.color}-600 to-${project.color}-800 p-6 flex items-end relative overflow-hidden">
-                <i class="fa-solid ${project.icon} absolute -right-4 -bottom-4 text-9xl text-white opacity-10 transform rotate-12 group-hover:scale-110 transition-transform duration-500"></i>
-                <h3 class="text-white font-bold text-xl relative z-10">${project.title}</h3>
-            </div>
-            <div class="p-6 flex-1 flex flex-col">
-                <div class="flex gap-2 mb-4 flex-wrap">
-                    ${project.tags.map(tag => `
-                        <span class="px-2 py-1 bg-${project.color}-50 dark:bg-${project.color}-900/30 text-${project.color}-700 dark:text-${project.color}-300 text-xs font-semibold rounded border border-${project.color}-100 dark:border-${project.color}-800/50">${tag}</span>
-                    `).join('')}
-                </div>
-                <p class="text-slate-600 dark:text-slate-400 text-sm mb-6 flex-1 leading-relaxed">
-                    ${project.summary}
-                </p>
-                <div class="pt-4 border-t border-slate-100 dark:border-slate-700 flex justify-between items-center">
-                    <span class="text-xs text-slate-400 dark:text-slate-500 font-medium">${project.period}</span>
-                    <a href="#project/${project.id}" class="text-brand-600 dark:text-brand-400 text-sm font-semibold hover:text-brand-800 dark:hover:text-brand-300 flex items-center gap-1 group-hover:gap-2 transition-all">
-                        Details <i class="fa-solid fa-arrow-right text-xs"></i>
-                    </a>
-                </div>
-            </div>
-        </article>
-    `).join('');
+  if (!projectsGrid) return;
+
+  const featured = projects.slice(0, 3).map(renderFeaturedProject).join('');
+  const compact = projects.slice(3).map((project, offset) => renderCompactProject(project, offset + 3)).join('');
+
+  projectsGrid.innerHTML = `
+    <div class="grid gap-6 lg:grid-cols-3">${featured}</div>
+    ${compact ? `<div class="mt-6 grid gap-4">${compact}</div>` : ''}
+  `;
 }
 
 function disableBodyScroll() {
-    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-    if (scrollbarWidth > 0) {
-        document.body.style.paddingRight = `${scrollbarWidth}px`;
-        if (navbar) {
-            navbar.classList.add('no-transition');
-            navbar.style.paddingRight = `${scrollbarWidth}px`;
-        }
+  const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+  if (scrollbarWidth > 0) {
+    document.body.style.paddingRight = `${scrollbarWidth}px`;
+    if (navbar) {
+      navbar.classList.add('no-transition');
+      navbar.style.paddingRight = `${scrollbarWidth}px`;
     }
-    document.body.style.overflow = 'hidden';
+  }
+  document.body.style.overflow = 'hidden';
 }
 
 function enableBodyScroll() {
-    document.body.style.overflow = '';
-    document.body.style.paddingRight = '';
-    if (navbar) {
-        navbar.style.paddingRight = '';
-        // Small delay to ensure the padding is removed before re-enabling transitions
-        setTimeout(() => {
-            navbar.classList.remove('no-transition');
-        }, 10);
-    }
+  document.body.style.overflow = '';
+  document.body.style.paddingRight = '';
+  if (navbar) {
+    navbar.style.paddingRight = '';
+    setTimeout(() => navbar.classList.remove('no-transition'), 10);
+  }
+}
+
+function renderLinks(project) {
+  const links = getValidLinks(project.links);
+  if (!links.length) return '';
+
+  return `
+    <section class="overlay-panel">
+      <h3>Links</h3>
+      <div class="mt-4 grid gap-3">
+        ${links.map(([key, url]) => `
+          <a href="${escapeHtml(url)}" target="_blank" rel="noreferrer" class="inline-flex items-center justify-between rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm font-bold text-slate-700 transition hover:border-brand-500 hover:text-brand-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200">
+            ${escapeHtml(key)} <i class="fa-solid fa-arrow-up-right-from-square text-xs" aria-hidden="true"></i>
+          </a>
+        `).join('')}
+      </div>
+    </section>
+  `;
 }
 
 function showProjectDetail(projectId) {
-    const project = projects.find(p => p.id === projectId);
-    if (!project || !overlayContent || !projectOverlay) return;
+  const project = projects.find(p => p.id === projectId);
+  if (!project || !overlayContent || !projectOverlay) return;
 
-    overlayContent.innerHTML = `
-        <div class="max-w-4xl mx-auto">
-            <div class="mb-12">
-                <div class="flex flex-wrap gap-2 mb-4">
-                    ${project.tags.map(tag => `<span class="px-3 py-1 bg-${project.color}-50 dark:bg-${project.color}-900/30 text-${project.color}-600 dark:text-${project.color}-400 text-xs font-bold rounded-full">${tag}</span>`).join('')}
-                </div>
-                <h2 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">${project.title}</h2>
-                <p class="text-lg text-slate-500 dark:text-slate-400">${project.period} • ${project.role}</p>
-            </div>
-
-            <div class="grid lg:grid-cols-3 gap-12">
-                <div class="lg:col-span-2 space-y-8">
-                    <section class="prose dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 leading-relaxed">
-                        ${project.fullDescription}
-                    </section>
-                    
-                    ${project.challenges ? `
-                        <section class="p-8 rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-sm">
-                            <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
-                                <i class="fa-solid fa-triangle-exclamation text-orange-500"></i> Key Challenges
-                            </h4>
-                            <p class="text-slate-600 dark:text-slate-400">${project.challenges}</p>
-                        </section>
-                    ` : ''}
-                </div>
-
-                <div class="space-y-8">
-                    <div class="p-6 rounded-2xl bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
-                        <h4 class="font-bold text-slate-900 dark:text-white mb-4">Tech Stack</h4>
-                        <div class="flex flex-wrap gap-2">
-                            ${project.technologies.map(tech => `<span class="px-2 py-1 bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-medium rounded border border-slate-200 dark:border-slate-600">${tech}</span>`).join('')}
-                        </div>
-                    </div>
-
-                    ${Object.keys(project.links).length > 0 ? `
-                        <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-sm">
-                            <h4 class="font-bold text-slate-900 dark:text-white mb-4">Project Links</h4>
-                            <div class="space-y-3">
-                                ${Object.entries(project.links).map(([key, url]) => `
-                                    <a href="${url}" class="flex items-center justify-between group p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
-                                        <span class="text-sm font-medium text-slate-600 dark:text-slate-400 capitalize">${key}</span>
-                                        <i class="fa-solid fa-external-link text-xs text-slate-400 group-hover:text-brand-500"></i>
-                                    </a>
-                                `).join('')}
-                            </div>
-                        </div>
-                    ` : ''}
-                </div>
-            </div>
+  overlayContent.innerHTML = `
+    <article>
+      <div class="grid gap-10 lg:grid-cols-[0.58fr_0.42fr] lg:items-start">
+        <div>
+          <p class="section-label">${escapeHtml(project.type)} / ${escapeHtml(project.year)}</p>
+          <h2 id="overlay-title" class="mt-4 max-w-4xl text-4xl font-extrabold leading-tight tracking-tight text-slate-950 sm:text-6xl dark:text-white">${escapeHtml(project.title)}</h2>
+          <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-600 dark:text-slate-300">${escapeHtml(project.summary)}</p>
         </div>
-    `;
+        <aside class="overlay-panel">
+          <h3>Case signal</h3>
+          <dl class="mt-5 space-y-4 text-sm">
+            <div>
+              <dt class="font-bold uppercase tracking-[0.16em] text-slate-400">Role</dt>
+              <dd class="mt-1 font-semibold text-slate-900 dark:text-slate-100">${escapeHtml(project.role)}</dd>
+            </div>
+            <div>
+              <dt class="font-bold uppercase tracking-[0.16em] text-slate-400">Outcome</dt>
+              <dd class="mt-1 font-semibold text-slate-900 dark:text-slate-100">${escapeHtml(project.outcome)}</dd>
+            </div>
+            <div>
+              <dt class="font-bold uppercase tracking-[0.16em] text-slate-400">Period</dt>
+              <dd class="mt-1 font-semibold text-slate-900 dark:text-slate-100">${escapeHtml(project.period)}</dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
 
-    projectOverlay.classList.remove('hidden');
-    setTimeout(() => {
-        projectOverlay.classList.add('opacity-100');
-        disableBodyScroll();
-    }, 10);
+      <div class="mt-12 grid gap-6 lg:grid-cols-[0.64fr_0.36fr]">
+        <div class="space-y-6">
+          <section class="overlay-panel">
+            <h3>Problem</h3>
+            <p>${escapeHtml(project.problem)}</p>
+          </section>
+          <section class="overlay-panel">
+            <h3>Method</h3>
+            <p>${escapeHtml(project.method)}</p>
+          </section>
+          <section class="overlay-panel">
+            <h3>Evidence</h3>
+            <ul class="mt-5 space-y-3">
+              ${project.evidence.map(item => `<li>${escapeHtml(item)}</li>`).join('')}
+            </ul>
+          </section>
+        </div>
+        <div class="space-y-6">
+          <section class="overlay-panel">
+            <h3>Tools</h3>
+            <div class="mt-4 flex flex-wrap gap-2">
+              ${project.technologies.map(tech => `<span class="method-pill">${escapeHtml(tech)}</span>`).join('')}
+            </div>
+          </section>
+          <section class="overlay-panel">
+            <h3>Methods</h3>
+            <div class="mt-4 flex flex-wrap gap-2">
+              ${project.methods.map(method => `<span class="method-pill">${escapeHtml(method)}</span>`).join('')}
+            </div>
+          </section>
+          ${renderLinks(project)}
+        </div>
+      </div>
+    </article>
+  `;
+
+  projectOverlay.classList.remove('hidden');
+  requestAnimationFrame(() => {
+    projectOverlay.classList.add('opacity-100');
+    disableBodyScroll();
+    closeOverlayBtn?.focus();
+  });
 }
 
 function closeProjectDetail() {
-    if (!projectOverlay) return;
-    projectOverlay.classList.remove('opacity-100');
-    setTimeout(() => {
-        projectOverlay.classList.add('hidden');
-        enableBodyScroll();
-        // Remove hash without scrolling to anchor
-        if (window.location.hash.startsWith('#project/')) {
-            history.pushState("", document.title, window.location.pathname + window.location.search);
-        }
-    }, 500);
+  if (!projectOverlay) return;
+  projectOverlay.classList.remove('opacity-100');
+  setTimeout(() => {
+    projectOverlay.classList.add('hidden');
+    enableBodyScroll();
+    if (window.location.hash.startsWith('#project/')) {
+      history.pushState('', document.title, window.location.pathname + window.location.search);
+    }
+  }, 300);
 }
 
-// Handle routing
-window.addEventListener('hashchange', () => {
-    const hash = window.location.hash;
-    if (hash.startsWith('#project/')) {
-        const projectId = hash.replace('#project/', '');
-        showProjectDetail(projectId);
-    } else if (hash === '#projects' || hash === '') {
-        closeProjectDetail();
-    }
-});
-
-// Initial load check
-if (window.location.hash.startsWith('#project/')) {
-    const projectId = window.location.hash.replace('#project/', '');
-    showProjectDetail(projectId);
+function handleHash() {
+  const hash = window.location.hash;
+  if (hash.startsWith('#project/')) {
+    showProjectDetail(hash.replace('#project/', ''));
+  } else if (!projectOverlay?.classList.contains('hidden')) {
+    closeProjectDetail();
+  }
 }
 
-closeOverlayBtn?.addEventListener('click', closeProjectDetail);
-
-// Close on Escape key
-window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !projectOverlay?.classList.contains('hidden')) {
-        closeProjectDetail();
+function updateScrollSpy() {
+  let current = '';
+  sections.forEach(section => {
+    if (window.pageYOffset >= section.offsetTop - 220) {
+      current = section.getAttribute('id') || '';
     }
-});
+  });
 
+  navLinks.forEach(link => {
+    const href = link.getAttribute('href') || '';
+    link.classList.toggle('active', Boolean(current && href === `#${current}`));
+  });
+}
+
+setInitialTheme();
+updateNavbar();
 renderProjects();
+handleHash();
+
+themeToggle?.addEventListener('click', toggleDarkMode);
+themeToggleMobile?.addEventListener('click', toggleDarkMode);
+window.addEventListener('scroll', () => {
+  updateNavbar();
+  updateScrollSpy();
+});
+menuBtn?.addEventListener('click', () => setMenuOpen(!mobileMenu?.classList.contains('open')));
+mobileLinks.forEach(link => link.addEventListener('click', () => setMenuOpen(false)));
+window.addEventListener('hashchange', handleHash);
+closeOverlayBtn?.addEventListener('click', closeProjectDetail);
+projectOverlay?.addEventListener('click', (event) => {
+  if (event.target === projectOverlay) closeProjectDetail();
+});
+window.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && !projectOverlay?.classList.contains('hidden')) {
+    closeProjectDetail();
+  }
+});

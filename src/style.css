@@ -2,80 +2,249 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom Scrollbar */
+:root {
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+body {
+  min-width: 320px;
+}
+
 ::-webkit-scrollbar {
-    width: 10px;
+  width: 10px;
 }
+
 ::-webkit-scrollbar-track {
-    @apply bg-slate-100 dark:bg-slate-800;
+  @apply bg-slate-100 dark:bg-slate-900;
 }
+
 ::-webkit-scrollbar-thumb {
-    @apply bg-slate-300 dark:bg-slate-600 rounded-full;
+  @apply rounded-full bg-slate-300 dark:bg-slate-700;
 }
+
 ::-webkit-scrollbar-thumb:hover {
-    @apply bg-slate-400 dark:bg-slate-500;
+  @apply bg-slate-400 dark:bg-slate-600;
 }
 
-/* Nav Link Active */
 .nav-link.active {
-    @apply text-brand-600 font-bold;
+  @apply text-brand-700 dark:text-brand-300;
 }
 
-/* Mobile menu transition */
 #mobile-menu {
-    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
 }
+
 #mobile-menu.open {
-    max-height: 400px;
-    opacity: 1;
+  max-height: 420px;
+  opacity: 1;
 }
 
-/* Glassmorphism utility */
-.glass {
-    @apply bg-white/70 dark:bg-slate-900/70 backdrop-blur-md border border-white/20 dark:border-slate-700/30;
+.atlas-grid {
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.055) 1px, transparent 1px),
+    radial-gradient(circle at 78% 18%, rgba(14, 165, 233, 0.14), transparent 32%),
+    radial-gradient(circle at 8% 82%, rgba(20, 184, 166, 0.12), transparent 34%);
+  background-size: 44px 44px, 44px 44px, auto, auto;
 }
 
-/* Hero Blob */
-.hero-blob {
-    position: absolute;
-    top: -10%;
-    right: -5%;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
-    @apply rounded-full -z-10 blur-[60px];
-    animation: pulse 10s infinite alternate;
+.dark .atlas-grid {
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+    radial-gradient(circle at 78% 18%, rgba(14, 165, 233, 0.14), transparent 32%),
+    radial-gradient(circle at 8% 82%, rgba(20, 184, 166, 0.1), transparent 34%);
 }
 
-.dark .hero-blob {
-    background: radial-gradient(circle, rgba(14, 165, 233, 0.1) 0%, rgba(15, 23, 42, 0) 70%);
+.route-panel::before,
+.route-panel::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  height: 2px;
+  width: 62%;
+  background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.8), rgba(20, 184, 166, 0.65), transparent);
 }
 
-@keyframes pulse {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.1); }
+.route-panel::before {
+  left: -8%;
+  top: 22%;
+  transform: rotate(-18deg);
 }
 
-/* Detailed Project Typography */
-#overlay-content p {
-    @apply mb-4 leading-relaxed;
+.route-panel::after {
+  right: -10%;
+  bottom: 27%;
+  transform: rotate(24deg);
 }
 
-#overlay-content h4 {
-    @apply font-bold text-slate-900 dark:text-white;
+.section-label {
+  @apply text-xs font-extrabold uppercase tracking-[0.24em] text-brand-700 dark:text-brand-300;
 }
 
-#overlay-content ul {
-    @apply list-disc pl-5 mb-6;
+.method-card {
+  @apply rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-brand-400 hover:shadow-atlas dark:border-slate-800 dark:bg-slate-900;
 }
 
-#overlay-content li {
-    @apply mb-2;
+.method-card h3 {
+  @apply mt-4 text-xl font-extrabold text-slate-950 dark:text-white;
+}
+
+.method-card p {
+  @apply mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300;
+}
+
+.method-icon {
+  @apply text-3xl;
+}
+
+.method-pill {
+  @apply rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-bold text-slate-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300;
+}
+
+.case-tile-featured {
+  @apply flex min-h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-atlas-paper shadow-sm transition hover:-translate-y-1 hover:shadow-atlas dark:border-slate-800 dark:bg-slate-900;
+}
+
+.case-tile-compact {
+  @apply grid gap-6 rounded-2xl border border-slate-200 bg-atlas-paper p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-atlas md:grid-cols-[1fr_0.45fr] md:items-center dark:border-slate-800 dark:bg-slate-900;
+}
+
+.case-visual {
+  @apply relative h-56 overflow-hidden border-b border-slate-200 p-6 dark:border-slate-800;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.28) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.28) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.visual-brand {
+  background-color: #0369a1;
+}
+
+.visual-teal {
+  background-color: #0f766e;
+}
+
+.visual-slate {
+  background-color: #334155;
+}
+
+.visual-cyan {
+  background-color: #0e7490;
+}
+
+.visual-amber {
+  background-color: #b45309;
+}
+
+.case-index {
+  @apply absolute left-6 top-5 text-sm font-extrabold tracking-[0.22em] text-white/70;
+}
+
+.case-compass {
+  @apply absolute bottom-5 right-6 text-6xl text-white/15;
+}
+
+.case-visual p {
+  @apply absolute bottom-6 left-6 max-w-[12rem] text-2xl font-extrabold leading-tight text-white;
+}
+
+.route-line {
+  @apply absolute h-0.5 rounded-full bg-white/70;
+}
+
+.route-line-a {
+  left: -10%;
+  top: 42%;
+  width: 72%;
+  transform: rotate(-20deg);
+}
+
+.route-line-b {
+  right: -8%;
+  top: 58%;
+  width: 80%;
+  transform: rotate(24deg);
+}
+
+.route-node {
+  @apply absolute h-4 w-4 rounded-full border-2 border-white bg-transparent shadow-[0_0_0_8px_rgba(255,255,255,0.14)];
+}
+
+.route-node-one {
+  left: 32%;
+  top: 35%;
+}
+
+.route-node-two {
+  right: 22%;
+  top: 56%;
+}
+
+.timeline-card {
+  @apply rounded-2xl border border-slate-200 bg-atlas-paper p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900;
+}
+
+.timeline-card h3 {
+  @apply mt-2 text-xl font-extrabold text-slate-950 dark:text-white;
+}
+
+.timeline-card p {
+  @apply leading-7 text-slate-600 dark:text-slate-300;
+}
+
+.timeline-card ul {
+  @apply mt-5 space-y-3 pl-5 text-sm leading-7 text-slate-600 dark:text-slate-300;
+  list-style: disc;
+}
+
+.timeline-date {
+  @apply text-xs font-extrabold uppercase tracking-[0.18em] text-brand-700 dark:text-brand-300;
+}
+
+.footer-action {
+  @apply inline-flex items-center gap-2 rounded-lg border border-white/15 bg-white/10 px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-white hover:text-slate-950;
+}
+
+.overlay-panel {
+  @apply rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900;
+}
+
+.overlay-panel h3 {
+  @apply text-lg font-extrabold text-slate-950 dark:text-white;
+}
+
+.overlay-panel p {
+  @apply mt-4 leading-8 text-slate-600 dark:text-slate-300;
+}
+
+.overlay-panel ul {
+  @apply list-disc pl-5 text-slate-600 dark:text-slate-300;
+}
+
+.overlay-panel li {
+  @apply leading-7;
 }
 
 .no-transition {
-    transition: none !important;
+  transition: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }
