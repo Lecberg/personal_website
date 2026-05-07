@@ -1,256 +1,216 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ryan Ma | Urban Design & Transport Portfolio</title>
-    <meta name="description" content="Employer-focused portfolio of Ryan Ma, an urban design and transport analyst working across GIS, simulation, and computer vision.">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23020617'/%3E%3Cpath d='M13 39h38M13 25h38M24 13v38M40 13v38' stroke='%2338bdf8' stroke-width='3' opacity='.7'/%3E%3Ctext x='32' y='38' text-anchor='middle' font-family='Arial,sans-serif' font-size='18' font-weight='800' fill='white'%3ERM%3C/text%3E%3C/svg%3E">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ma Tianhao (Ryan Ma) | Urban Design & Transport</title>
+  <meta name="description" content="Plain resume-style portfolio for Ma Tianhao (Ryan Ma), focused on traffic analysis, GIS, simulation, and urban transport planning.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f172a'/%3E%3Cpath d='M18 43h28M22 22h20M26 32h12' stroke='%2338bdf8' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-atlas-paper text-slate-900 antialiased selection:bg-brand-200 selection:text-brand-900 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
-    <header id="navbar" class="fixed top-0 z-50 w-full border-transparent py-4 transition-all duration-300">
-        <div class="mx-auto flex max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10">
-            <a href="#home" class="group flex items-center gap-3" aria-label="Ryan Ma home">
-                <span class="grid h-11 w-11 place-items-center rounded-lg border border-slate-900 bg-slate-950 text-sm font-extrabold text-white shadow-atlas transition-transform group-hover:-translate-y-0.5 dark:border-white dark:bg-white dark:text-slate-950">RM</span>
-                <span class="flex flex-col">
-                    <span class="text-sm font-bold leading-none tracking-wide text-slate-950 dark:text-white">Ryan Ma</span>
-                    <span class="mt-1 text-[10px] font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">Urban Atlas</span>
-                </span>
-            </a>
+<body class="bg-white text-slate-900 antialiased selection:bg-cyan-100 selection:text-slate-950 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
+  <header id="navbar" class="fixed top-0 z-50 w-full border-b border-transparent bg-white/80 transition-all duration-300 dark:bg-slate-950/80">
+    <div class="mx-auto flex max-w-5xl items-center justify-between px-5 py-4 sm:px-8">
+      <a href="#home" class="text-sm font-extrabold tracking-tight text-slate-950 dark:text-white" aria-label="Ryan Ma home">
+        Ryan Ma
+      </a>
 
-            <nav class="hidden items-center gap-7 md:flex" aria-label="Primary navigation">
-                <a href="#home" class="nav-link text-sm font-semibold text-slate-600 transition-colors hover:text-brand-700 dark:text-slate-300 dark:hover:text-brand-300">Home</a>
-                <a href="#projects" class="nav-link text-sm font-semibold text-slate-600 transition-colors hover:text-brand-700 dark:text-slate-300 dark:hover:text-brand-300">Work</a>
-                <a href="#skills" class="nav-link text-sm font-semibold text-slate-600 transition-colors hover:text-brand-700 dark:text-slate-300 dark:hover:text-brand-300">Methods</a>
-                <a href="#experience" class="nav-link text-sm font-semibold text-slate-600 transition-colors hover:text-brand-700 dark:text-slate-300 dark:hover:text-brand-300">Profile</a>
-                <a href="#contact" class="nav-link text-sm font-semibold text-slate-600 transition-colors hover:text-brand-700 dark:text-slate-300 dark:hover:text-brand-300">Contact</a>
-                <button id="theme-toggle" type="button" aria-label="Toggle dark mode" class="grid h-10 w-10 place-items-center rounded-full border border-slate-200 bg-white text-slate-600 transition-all hover:border-brand-500 hover:text-brand-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300">
-                    <i class="fa-solid fa-moon dark:hidden" aria-hidden="true"></i>
-                    <i class="fa-solid fa-sun hidden dark:block" aria-hidden="true"></i>
-                </button>
-            </nav>
+      <nav class="hidden items-center gap-6 md:flex" aria-label="Primary navigation">
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#experience" class="nav-link">Internship</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#languages" class="nav-link">Languages</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <button id="theme-toggle" type="button" aria-label="Toggle dark mode" class="icon-button">
+          <i class="fa-solid fa-moon dark:hidden" aria-hidden="true"></i>
+          <i class="fa-solid fa-sun hidden dark:block" aria-hidden="true"></i>
+        </button>
+      </nav>
 
-            <div class="flex items-center gap-3 md:hidden">
-                <button id="theme-toggle-mobile" type="button" aria-label="Toggle dark mode" class="grid h-10 w-10 place-items-center rounded-full border border-slate-200 bg-white text-slate-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300">
-                    <i class="fa-solid fa-moon dark:hidden" aria-hidden="true"></i>
-                    <i class="fa-solid fa-sun hidden dark:block" aria-hidden="true"></i>
-                </button>
-                <button id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" class="grid h-10 w-10 place-items-center rounded-full border border-slate-200 bg-white text-slate-700 transition-colors hover:text-brand-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300">
-                    <i class="fa-solid fa-bars text-lg" aria-hidden="true"></i>
-                </button>
-            </div>
-        </div>
-
-        <div id="mobile-menu" class="absolute left-0 top-full w-full border-b border-slate-200 bg-atlas-paper/95 shadow-xl backdrop-blur md:hidden dark:border-slate-800 dark:bg-slate-950/95">
-            <nav class="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-5" aria-label="Mobile navigation">
-                <a href="#home" class="mobile-link text-base font-semibold text-slate-700 dark:text-slate-300">Home</a>
-                <a href="#projects" class="mobile-link text-base font-semibold text-slate-700 dark:text-slate-300">Work</a>
-                <a href="#skills" class="mobile-link text-base font-semibold text-slate-700 dark:text-slate-300">Methods</a>
-                <a href="#experience" class="mobile-link text-base font-semibold text-slate-700 dark:text-slate-300">Profile</a>
-                <a href="#contact" class="mobile-link text-base font-semibold text-slate-700 dark:text-slate-300">Contact</a>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <section id="home" class="atlas-grid relative min-h-screen overflow-hidden pt-28">
-            <div class="mx-auto grid min-h-[calc(100vh-7rem)] max-w-7xl items-center gap-12 px-5 pb-20 sm:px-8 lg:grid-cols-[1.08fr_0.92fr] lg:px-10">
-                <div class="relative z-10 max-w-3xl animate-fade-in-up">
-                    <p class="mb-5 max-w-xl text-sm font-semibold uppercase tracking-[0.28em] text-brand-700 dark:text-brand-300">Hong Kong based urban design and transport analyst</p>
-                    <h1 class="max-w-4xl text-5xl font-extrabold leading-[0.98] tracking-tight text-slate-950 sm:text-6xl lg:text-7xl dark:text-white">
-                        Turning city data into clearer transport decisions.
-                    </h1>
-                    <p class="mt-7 max-w-2xl text-lg leading-8 text-slate-600 sm:text-xl dark:text-slate-300">
-                        I combine spatial analysis, simulation, CAD design, and computer vision to help teams understand movement, safety, and urban growth with evidence employers can inspect quickly.
-                    </p>
-
-                    <div class="mt-9 flex flex-wrap gap-4">
-                        <a href="#projects" class="inline-flex items-center gap-3 rounded-lg bg-slate-950 px-6 py-3.5 text-sm font-bold text-white shadow-atlas transition hover:-translate-y-0.5 hover:bg-slate-800 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100">
-                            View selected work <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-                        </a>
-                        <a href="./personal_CV.pdf" download class="inline-flex items-center gap-3 rounded-lg border border-slate-300 bg-white px-6 py-3.5 text-sm font-bold text-slate-800 transition hover:-translate-y-0.5 hover:border-brand-600 hover:text-brand-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:border-brand-400 dark:hover:text-brand-300">
-                            <i class="fa-solid fa-download" aria-hidden="true"></i> Download CV
-                        </a>
-                    </div>
-
-                    <dl class="mt-12 grid max-w-2xl grid-cols-1 gap-4 border-y border-slate-200 py-6 text-sm sm:grid-cols-3 dark:border-slate-800">
-                        <div>
-                            <dt class="font-semibold uppercase tracking-[0.18em] text-slate-400">Base</dt>
-                            <dd class="mt-2 font-bold text-slate-800 dark:text-slate-100">Hong Kong</dd>
-                        </div>
-                        <div>
-                            <dt class="font-semibold uppercase tracking-[0.18em] text-slate-400">Focus</dt>
-                            <dd class="mt-2 font-bold text-slate-800 dark:text-slate-100">Urban transport</dd>
-                        </div>
-                        <div>
-                            <dt class="font-semibold uppercase tracking-[0.18em] text-slate-400">Tools</dt>
-                            <dd class="mt-2 font-bold text-slate-800 dark:text-slate-100">GIS, Python, VISSIM</dd>
-                        </div>
-                    </dl>
-                </div>
-
-                <div class="relative mx-auto w-full max-w-[520px] animate-fade-in-up lg:ml-auto" style="animation-delay: 0.12s;">
-                    <div class="route-panel relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-4 shadow-atlas dark:border-slate-800 dark:bg-slate-900">
-                        <div class="absolute left-8 top-8 h-28 w-28 rounded-full border border-brand-300/50" aria-hidden="true"></div>
-                        <div class="absolute bottom-12 right-10 h-32 w-32 rounded-full border border-teal-300/50" aria-hidden="true"></div>
-                        <img src="./profile_image.JPG" alt="Ryan Ma" class="relative z-10 aspect-[4/5] w-full rounded-[1.4rem] object-cover object-top">
-                    </div>
-                    <div class="absolute -bottom-5 left-5 right-5 z-20 rounded-2xl border border-slate-200 bg-atlas-paper/95 p-5 shadow-atlas backdrop-blur dark:border-slate-700 dark:bg-slate-950/90">
-                        <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-700 dark:text-brand-300">Available for internships and planning roles</p>
-                        <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">MSc Urban Design and Transport, The University of Hong Kong, expected June 2027.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="relative border-y border-slate-200 bg-white py-24 dark:border-slate-800 dark:bg-slate-950">
-            <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-                <div class="grid gap-8 lg:grid-cols-[0.42fr_0.58fr] lg:items-end">
-                    <div>
-                        <p class="section-label">Selected work</p>
-                        <h2 class="mt-3 text-4xl font-extrabold tracking-tight text-slate-950 sm:text-5xl dark:text-white">Case studies built for fast employer review.</h2>
-                    </div>
-                    <p class="max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">
-                        Each project foregrounds the hiring signal: the problem, Ryan's role, the methods used, and the outcome or evidence produced.
-                    </p>
-                </div>
-
-                <div id="projects-grid" class="mt-14">
-                    <!-- Projects will be dynamically injected here -->
-                </div>
-            </div>
-        </section>
-
-        <section id="skills" class="atlas-grid relative py-24">
-            <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-                <div class="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
-                    <div>
-                        <p class="section-label">Methods and tools</p>
-                        <h2 class="mt-3 text-4xl font-extrabold tracking-tight text-slate-950 sm:text-5xl dark:text-white">A practical toolkit for city-scale questions.</h2>
-                        <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-300">
-                            The site now presents skills as employer-readable methods rather than generic proficiency bars.
-                        </p>
-                    </div>
-                    <div class="grid gap-4 sm:grid-cols-2">
-                        <article class="method-card">
-                            <i class="fa-solid fa-map-location-dot method-icon text-brand-700 dark:text-brand-300" aria-hidden="true"></i>
-                            <h3>Spatial analysis</h3>
-                            <p>ArcGIS Pro, QGIS, GeoPandas, POI integration, spatial regression, scenario maps.</p>
-                        </article>
-                        <article class="method-card">
-                            <i class="fa-solid fa-traffic-light method-icon text-teal-700 dark:text-teal-300" aria-hidden="true"></i>
-                            <h3>Traffic simulation</h3>
-                            <p>VISSIM, Synchro, Signal 4.0, delay analysis, queue evaluation, signal timing.</p>
-                        </article>
-                        <article class="method-card">
-                            <i class="fa-solid fa-code method-icon text-slate-700 dark:text-slate-200" aria-hidden="true"></i>
-                            <h3>Data workflows</h3>
-                            <p>Python, MATLAB, Excel, model comparison, visualization, reproducible summaries.</p>
-                        </article>
-                        <article class="method-card">
-                            <i class="fa-solid fa-camera-retro method-icon text-cyan-700 dark:text-cyan-300" aria-hidden="true"></i>
-                            <h3>Computer vision</h3>
-                            <p>OpenCV, YOLOv8, ResNet, edge devices, image processing for traffic safety research.</p>
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="experience" class="border-y border-slate-200 bg-white py-24 dark:border-slate-800 dark:bg-slate-950">
-            <div class="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.5fr_0.5fr] lg:px-10">
-                <div>
-                    <p class="section-label">Experience</p>
-                    <h2 class="mt-3 text-4xl font-extrabold tracking-tight text-slate-950 dark:text-white">Planning office experience with technical depth.</h2>
-                    <div class="timeline-card mt-9">
-                        <p class="timeline-date">July 2024 - Aug 2024</p>
-                        <h3>Shenzhen Urban Planning & Design Institute</h3>
-                        <p class="font-semibold text-slate-700 dark:text-slate-200">Intern, Second Municipal Engineering Institute</p>
-                        <ul>
-                            <li>Contributed to road intersection designs for the Shenzhen Bay Super Headquarters Base municipal project.</li>
-                            <li>Modified CAD drawings, checked standards, and supported project review meetings.</li>
-                            <li>Applied traffic design theory to lane widths, curve radii, and vehicle-flow marking.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div>
-                    <p class="section-label">Education</p>
-                    <h2 class="mt-3 text-4xl font-extrabold tracking-tight text-slate-950 dark:text-white">Urban design, transport, and engineering foundation.</h2>
-                    <div class="mt-9 space-y-5">
-                        <article class="timeline-card">
-                            <p class="timeline-date">Expected June 2027</p>
-                            <h3>The University of Hong Kong</h3>
-                            <p>Master of Science in Urban Design and Transport</p>
-                        </article>
-                        <article class="timeline-card">
-                            <p class="timeline-date">Sep 2021 - June 2025</p>
-                            <h3>Chang'an University</h3>
-                            <p>Bachelor of Engineering in Traffic Engineering</p>
-                            <p class="mt-3 text-sm text-slate-500 dark:text-slate-400">GPA: 86.06/100.00</p>
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="awards" class="py-20">
-            <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-                <div class="rounded-2xl border border-slate-200 bg-white p-7 shadow-atlas sm:p-9 dark:border-slate-800 dark:bg-slate-900">
-                    <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-                        <div>
-                            <p class="section-label">Honors</p>
-                            <h2 class="mt-3 text-2xl font-extrabold text-slate-950 dark:text-white">2023 MCM/ICM Meritorious Winner</h2>
-                            <p class="mt-3 max-w-3xl text-slate-600 dark:text-slate-300">Predicted Wordle engagement trends using CNN-LSTM and classified difficulty with EWM-TOPSIS.</p>
-                        </div>
-                        <span class="inline-flex w-fit items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-4 py-2 text-sm font-bold text-amber-800 dark:border-amber-800/60 dark:bg-amber-900/30 dark:text-amber-200">
-                            <i class="fa-solid fa-trophy" aria-hidden="true"></i> Mathematical Modeling
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer id="contact" class="border-t border-slate-200 bg-slate-950 py-14 text-white dark:border-slate-800">
-        <div class="mx-auto flex max-w-7xl flex-col gap-8 px-5 sm:px-8 md:flex-row md:items-center md:justify-between lg:px-10">
-            <div>
-                <p class="text-sm font-semibold uppercase tracking-[0.24em] text-brand-300">Contact</p>
-                <h2 class="mt-3 text-3xl font-extrabold">Ryan Ma</h2>
-                <p class="mt-2 text-slate-300">Urban design and transport portfolio, built for employer review.</p>
-            </div>
-            <div class="flex flex-wrap gap-3">
-                <a href="mailto:u3664746@connect.hku.hk" class="footer-action">
-                    <i class="fa-solid fa-envelope" aria-hidden="true"></i> Email
-                </a>
-                <a href="tel:+85284963497" class="footer-action">
-                    <i class="fa-solid fa-phone" aria-hidden="true"></i> Phone
-                </a>
-                <a href="./personal_CV.pdf" download class="footer-action">
-                    <i class="fa-solid fa-download" aria-hidden="true"></i> CV
-                </a>
-            </div>
-        </div>
-    </footer>
-
-    <div id="project-overlay" class="fixed inset-0 z-[60] hidden overflow-y-auto bg-atlas-paper/95 opacity-0 backdrop-blur-xl transition-all duration-300 dark:bg-slate-950/95" role="dialog" aria-modal="true" aria-labelledby="overlay-title">
-        <div class="min-h-screen">
-            <nav class="sticky top-0 z-10 flex items-center justify-between border-b border-slate-200 bg-atlas-paper/90 px-5 py-5 backdrop-blur sm:px-8 lg:px-10 dark:border-slate-800 dark:bg-slate-950/90">
-                <button id="close-overlay" type="button" aria-label="Close project details" class="group inline-flex items-center gap-3 rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-bold text-slate-700 shadow-sm transition hover:border-brand-500 hover:text-brand-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200">
-                    <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back
-                </button>
-                <span class="text-xs font-bold uppercase tracking-[0.24em] text-slate-400">Project case study</span>
-            </nav>
-            <div id="overlay-content" class="mx-auto max-w-7xl px-5 py-12 sm:px-8 lg:px-10">
-                <!-- Content will be injected here -->
-            </div>
-        </div>
+      <div class="flex items-center gap-2 md:hidden">
+        <button id="theme-toggle-mobile" type="button" aria-label="Toggle dark mode" class="icon-button">
+          <i class="fa-solid fa-moon dark:hidden" aria-hidden="true"></i>
+          <i class="fa-solid fa-sun hidden dark:block" aria-hidden="true"></i>
+        </button>
+        <button id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" class="icon-button">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+      </div>
     </div>
 
-    <script type="module" src="./src/main.js"></script>
+    <div id="mobile-menu" class="border-t border-slate-200 bg-white md:hidden dark:border-slate-800 dark:bg-slate-950">
+      <nav class="mx-auto flex max-w-5xl flex-col px-5 py-4 sm:px-8" aria-label="Mobile navigation">
+        <a href="#skills" class="mobile-link">Skills</a>
+        <a href="#education" class="mobile-link">Education</a>
+        <a href="#experience" class="mobile-link">Internship</a>
+        <a href="#projects" class="mobile-link">Projects</a>
+        <a href="#languages" class="mobile-link">Languages</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home" class="pt-24">
+    <section class="mx-auto grid max-w-5xl gap-10 px-5 pb-16 pt-10 sm:px-8 md:grid-cols-[1fr_15rem] md:items-start md:pt-20">
+      <div>
+        <p class="eyebrow">Urban Design & Transport</p>
+        <h1 class="mt-4 max-w-3xl text-4xl font-extrabold tracking-tight text-slate-950 sm:text-5xl dark:text-white">
+          Ma Tianhao (Ryan Ma)
+        </h1>
+        <p class="mt-5 max-w-3xl text-xl leading-8 text-slate-700 dark:text-slate-300">
+          Urban Design and Transport master's student focused on traffic analysis, GIS mapping, transport simulation, signal control, and spatial accessibility analysis.
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-x-5 gap-y-3 text-sm font-semibold text-slate-600 dark:text-slate-300">
+          <span>Hong Kong Island, Hong Kong</span>
+          <a href="tel:+85284963497" class="text-link">+852 84963497</a>
+          <a href="mailto:u3664746@connect.hku.hk" class="text-link">u3664746@connect.hku.hk</a>
+        </div>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="./personal_CV.pdf" download class="primary-action">Download CV</a>
+          <a href="mailto:u3664746@connect.hku.hk" class="secondary-action">Email Ryan</a>
+        </div>
+      </div>
+
+      <figure class="profile-frame">
+        <img src="./profile_image.JPG" alt="Ryan Ma" class="h-full w-full object-cover object-top">
+      </figure>
+    </section>
+
+    <section id="skills" class="section-block">
+      <div class="section-heading">
+        <p class="eyebrow">Professional Skills</p>
+        <h2>Technical focus</h2>
+      </div>
+
+      <div class="mt-8 grid gap-6 sm:grid-cols-2">
+        <article>
+          <h3>Software and programming</h3>
+          <p class="mt-3 leading-7 text-slate-600 dark:text-slate-400">
+            Python, ArcGIS Pro, AutoCAD, VISSIM, Anylogic, MATLAB.
+          </p>
+        </article>
+        <article>
+          <h3>Transport methods</h3>
+          <p class="mt-3 leading-7 text-slate-600 dark:text-slate-400">
+            Traffic data analysis, intersection design, signal control, transport simulation, spatial accessibility analysis, and GIS mapping.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="education" class="section-block">
+      <div class="section-heading">
+        <p class="eyebrow">Education</p>
+        <h2>Academic background</h2>
+      </div>
+
+      <div class="mt-8 grid gap-8">
+        <article class="content-row">
+          <div class="content-meta">
+            <span>Expected June 2027</span>
+            <span>Hong Kong</span>
+          </div>
+          <div>
+            <h3>The University of Hong Kong</h3>
+            <p class="mt-1 font-semibold text-slate-700 dark:text-slate-300">Master of Science in Urban Design and Transport</p>
+            <p class="mt-3 text-slate-600 dark:text-slate-400">GPA: 3.26/4.3</p>
+            <p class="mt-3 leading-7 text-slate-600 dark:text-slate-400">
+              Relevant coursework: Programming and Foundations in Urban Data Analysis, Spatial Mobility Analytics, Spatial Planning Analytics, Future Street Design Studio, Morphologies & Urban Design Theories.
+            </p>
+          </div>
+        </article>
+
+        <article class="content-row">
+          <div class="content-meta">
+            <span>September 2021 - June 2025</span>
+            <span>Xi'an, China</span>
+          </div>
+          <div>
+            <h3>Chang'an University</h3>
+            <p class="mt-1 font-semibold text-slate-700 dark:text-slate-300">Bachelor of Engineering in Traffic Engineering</p>
+            <p class="mt-3 text-slate-600 dark:text-slate-400">GPA: 86.06/100.00</p>
+            <p class="mt-3 leading-7 text-slate-600 dark:text-slate-400">
+              Relevant coursework includes Traffic Engineering, Road Capacity Analysis, Transportation Economics, Python Programming, Operations Research and Traffic Systems Analysis, Traffic Safety Engineering, Transportation Planning, Traffic Design, and Public Transportation.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience" class="section-block">
+      <div class="section-heading">
+        <p class="eyebrow">Internship Experience</p>
+        <h2>Professional experience</h2>
+      </div>
+
+      <article class="mt-8 content-row">
+        <div class="content-meta">
+          <span>July 2024 - August 2024</span>
+          <span>Shenzhen, China</span>
+        </div>
+        <div>
+          <h3>Shenzhen Urban Planning and Design Institute</h3>
+          <p class="mt-1 font-semibold text-slate-700 dark:text-slate-300">Intern, Second Municipal Engineering Institute</p>
+          <ul class="plain-list mt-4">
+            <li>Supported preliminary project reviews by organizing technical materials, summarizing expert comments, and tracking follow-up revisions across teams.</li>
+            <li>Analyzed basic traffic operation indicators, including lane configuration, turning movement organization, and potential conflict points at intersections.</li>
+            <li>Assisted in refining a road marking design issue affecting vehicle flow, supporting more feasible and standards-compliant project delivery.</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <section id="projects" class="section-block">
+      <div class="section-heading">
+        <p class="eyebrow">Project Experience</p>
+        <h2>Selected work</h2>
+      </div>
+      <div id="projects-list" class="mt-8 divide-y divide-slate-200 border-y border-slate-200 dark:divide-slate-800 dark:border-slate-800">
+        <!-- Projects are injected by src/main.js -->
+      </div>
+    </section>
+
+    <section id="languages" class="section-block">
+      <div class="section-heading">
+        <p class="eyebrow">Language Skills & Interests</p>
+        <h2>Languages and interests</h2>
+      </div>
+
+      <div class="mt-8 grid gap-6 sm:grid-cols-2">
+        <article>
+          <h3>Languages</h3>
+          <p class="mt-3 leading-7 text-slate-600 dark:text-slate-400">
+            Chinese Mandarin (Native), English (IELTS 7.5).
+          </p>
+        </article>
+        <article>
+          <h3>Interests</h3>
+          <p class="mt-3 leading-7 text-slate-600 dark:text-slate-400">
+            Tennis, Go-Karting, Badminton, Swimming.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact" class="mx-auto max-w-5xl px-5 pb-12 pt-8 sm:px-8">
+    <div class="border-t border-slate-200 pt-8 dark:border-slate-800">
+      <p class="text-sm font-bold uppercase tracking-[0.18em] text-cyan-700 dark:text-cyan-300">Contact</p>
+      <div class="mt-4 flex flex-wrap gap-x-5 gap-y-3 text-sm font-semibold text-slate-600 dark:text-slate-300">
+        <a href="mailto:u3664746@connect.hku.hk" class="text-link">u3664746@connect.hku.hk</a>
+        <a href="tel:+85284963497" class="text-link">+852 84963497</a>
+        <a href="./personal_CV.pdf" download class="text-link">Download CV</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="./src/main.js"></script>
 </body>
 </html>
